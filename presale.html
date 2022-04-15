@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" href="Logo_red (1).ico" />
+  <title>
+    Gigano Finance
+  </title>
+  <meta name="description" content="HOLD YOUR $GIGA" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+ 
+  <link rel="stylesheet" href="src/css/styleb.css" />
+  
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/"></script>
+
+  <script>
+    var test = false; // False if contracts are on Mainnet
+    var contractAddressSale = '0x8B5eD7F87a377E9f74fb9233Fd32e1632a3ed75e';
+    var contractAddressToken = '0x603741CF1Cac3e6E07eE6872D59328cB80290Eb2';
+</script>
+
+
+</head>
+
+<body class="leading-normal tracking-normal bg-black text-white" style="font-family: 'Montserrat', Bold; " data-scroll-container>
+<!--Nav-->
+<nav id="header" class="fixed w-full z-30 top-0 text-white md:px-10 transition  ">
+  <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2 ">
+    <div class="pl-4 flex items-center ">
+      <!-- logo -->
+      <a class="w-20 " href="index.html">
+        <img src="src/img/Logo_GIgano_png.png" >
+      </a>
+    </div>
+    <div class="lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-black lg:bg-transparent sm:h-screen md:h-auto text-black p-4  z-20" id="nav-content">
+        <div style="text-align: center">
+            <button id="connect" style="font-size: 12px">Connect</button> <button class="switch" id="addMainBSC" style="font-size: 12px;">To Avalanche Network</button>
+            <span id="nometamask" class="err" style="display: none">Please install Metamask first...</span>
+            <div class="network small"><span id="curnet"><span class="err">Please use DApp browser/extension (e.g. <a target="_blank" href="https://metamask.io">Metamask</a>)</span></span> <span id="myAddr"></span>
+            <span id="referred" style="display:none"><br>Referrer: <span id="referrer"></span></span></div>
+        </div>
+    </div>
+  </div>
+</nav>
+<div class="pt-24 h-screen pl-20 pr-20 herohead" data-scroll data-scroll-speed="1.5">
+    <div class="container h-screen px-3 mx-auto flex flex-wrap flex-col md:flex-row content-center">
+      <video data-scroll-repeat playsinline autoplay muted loop style=" position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+    opacity: 0.8;" data-scroll data-scroll-speed="-3.5">
+        <source src="src/video/presal.webm" type="video/webm">
+      </video>
+      <!--Right Col-->
+      <div class="container mx-auto flex flex-wrap">
+
+
+        <div data-scroll-class="opacity-100"style="  height:80% ;  width: 1%;" data-scroll-repeat class="custom-reveal w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink " data-scroll>
+          <div class="flex-1 backdrop-blur-lg b-gradient-g  rounded-xl  overflow-hidden pt-10 py-5 text-center">
+            <div class="flex flex-wrap no-underline hover:no-underline opacity-80 hover:opacity-100 transition">
+              <div class="w-full px-6">
+                <p class="text-lg mb-2 opacity-70 m-auto " >
+                  Private Sale Price (Whitelisted)
+                </p>
+                <p class="Gigano-white text-4xl mb-5 m-auto font-thin">
+                  $0.000075 
+                </p>
+              </div>
+            </div>
+    
+          </div>
+    
+        </div>
+        <div data-scroll-class="opacity-100" style="  height:80% ;  width: 5%; border-image: linear-gradient(#28ccc7, #0b211d) 10;"data-scroll-repeat class="custom-reveal w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink " data-scroll>
+          <div class="flex-1 backdrop-blur-lg b-gradient-g  rounded-xl overflow-hidden pt-10 py-5 text-center">
+            <div class="flex flex-wrap no-underline hover:no-underline opacity-80 hover:opacity-100 transition">
+              <div class="w-full px-6">
+                <p class="text-lg mb-2 opacity-70 m-auto">
+                  Launch Price
+                </p>
+                <p class="Gigano-white text-4xl mb-5 m-auto">
+                  $0.00009
+                </p>
+              </div>
+            </div>
+    
+          </div>
+    
+        </div>
+      <!--Left Col-->
+      <div data-scroll-repeat style="margin-right: -150px ; margin-left: 180px;;
+       margin-bottom: 100px;"   class="hero flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left self-center ">
+        <div style="text-align: center; ">
+            <h1>Buy $GIGA</h1>
+            <h2>min to buy is 0.3 avax</h2></br>
+            <p><input type="number" id="buyAmount" style="color: black;" value="0" min="0.3"> Avax</p>
+        </br>
+            <p><button class="button-64" id="buyBtn" style="text-align: center">Buy</button></p>
+            
+        </div>
+  
+      </div>
+  
+  
+    </div>
+  </div>
+</div>
+
+
+  
+<script src='https://dappbuilder.org/js/jquery-3.6.0.min.js' type="text/javascript" charset="utf-8"></script>
+<script src='https://dappbuilder.org/js/ethers-5.0.umd.min.js' type="text/javascript" charset="utf-8"></script>
+<script src='src/token.ui.js' type="text/javascript" charset="utf-8"></script>
+
+
+</body>
+
+</html>
